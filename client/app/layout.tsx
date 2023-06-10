@@ -1,4 +1,8 @@
 import "./globals.css"
+import { UserProvider } from "@auth0/nextjs-auth0/client"
+import { Inter } from "next/font/google"
+
+const inter = Inter({ weight: ["400", "500", "700"], subsets: ["latin"] })
 
 export const metadata = {
   title: "Later it",
@@ -11,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${inter.className} h-screen overflow-scroll bg-black`}>
+        <UserProvider>{children}</UserProvider>
+      </body>
     </html>
   )
 }
