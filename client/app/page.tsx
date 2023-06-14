@@ -4,6 +4,7 @@ import demo from "../public/demo.png"
 import Image from "next/image"
 import { useUser } from "@auth0/nextjs-auth0/client"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 export default function Home() {
   const { user, error, isLoading } = useUser()
@@ -39,13 +40,13 @@ export default function Home() {
           </div>
 
           <div className="flex h-7 w-60 flex-row items-center justify-between text-xl font-medium text-white">
-            <a href="/api/auth/login">Login</a>
-            <a
+            <Link href="/api/auth/login">Login</Link>
+            <Link
               href="/api/auth/login"
               className="h-11 w-36 rounded-xl bg-[#7E2EFF] py-2 text-center text-lg font-bold"
             >
               Sign Up
-            </a>
+            </Link>
           </div>
         </div>
       </div>

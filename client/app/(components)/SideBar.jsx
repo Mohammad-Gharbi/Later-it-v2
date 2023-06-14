@@ -8,6 +8,7 @@ import { Tooltip } from "@chakra-ui/react"
 import { useUser } from "@auth0/nextjs-auth0/client"
 import { useDispatch, useSelector } from "react-redux"
 import { setSection } from "@/redux/slices/appSlice"
+import Image from "next/image"
 
 export function SideBar() {
   const { user, error, isLoading } = useUser()
@@ -32,13 +33,13 @@ export function SideBar() {
     return () => {
       window.removeEventListener("keydown", onKeyDown)
     }
-  }, [])
+  }, [onKeyDown])
 
   useEffect(() => {
     if (!user && !isLoading) {
       router.push("/")
     }
-  }, [user])
+  }, [user, isLoading, router])
 
   return (
     <div className=" h-screen py-2">
@@ -227,10 +228,13 @@ export function SideBar() {
           {/* Profile */}
           <button>
             {user ? (
-              <img
+              <Image
+                width="100"
+                height="100"
                 className="mt-2 h-11 w-11 rounded-full"
                 src={user.picture}
-              ></img>
+                alt="Profile Picture"
+              />
             ) : (
               ""
             )}

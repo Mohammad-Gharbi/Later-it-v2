@@ -39,6 +39,7 @@ export function AddTag() {
       <div className="flex flex-col items-center">
         {tags.map((tag) => (
           <button
+            key={tag.id}
             onClick={() => {
               dispatch(setSection("Tag"))
               dispatch(

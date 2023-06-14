@@ -32,7 +32,9 @@ export default function Inbox() {
         setContent(
           articles
             ?.filter((article) => article.tag === state.currentTag)
-            .map((article) => <ArticlePreview article={article} />)
+            .map((article) => (
+              <ArticlePreview key={article.id} article={article} />
+            ))
         )
       } else if (isError) {
         toast({
@@ -78,7 +80,9 @@ export default function Inbox() {
         setContent(
           articles
             ?.filter((article) => article.status == state.section)
-            .map((article) => <ArticlePreview article={article} />)
+            .map((article) => (
+              <ArticlePreview key={article.id} article={article} />
+            ))
         )
       } else if (isError) {
         toast({
@@ -88,7 +92,7 @@ export default function Inbox() {
         })
       }
     }
-  }, [state, isLoading, isSuccess, isError])
+  }, [state, isLoading, isSuccess, isError, articles, toast])
 
   return (
     <div className="itemes-center relative flex h-screen w-full flex-col gap-5">

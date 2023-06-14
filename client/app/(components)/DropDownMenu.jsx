@@ -43,19 +43,21 @@ export function DropDownMenu({
           <>
             {articleTag === tag.tagName ? (
               <MenuItem
+                key={tag.id}
                 onClick={async () =>
                   await removeTagArticle({ articleId, tag: tag.tagName })
                 }
               >
-                Remove From "{tag.tagName}"
+                Remove From {tag.tagName}
               </MenuItem>
             ) : (
               <MenuItem
+                key={tag.id}
                 onClick={async () =>
                   await tagArticle({ articleId, tag: tag.tagName })
                 }
               >
-                Add To "{tag.tagName}"
+                Add To {tag.tagName}
               </MenuItem>
             )}
           </>
