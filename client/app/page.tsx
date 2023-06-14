@@ -70,10 +70,6 @@ export default function Home() {
           alt="demo"
         />
       </div>
-      {/* Credits */}
-      <div className="text-center text-xl font-medium text-white">
-        © 2023 mhmd. All rights reserved.
-      </div>
     </div>
   )
 }
