@@ -39,7 +39,7 @@ export function SideBar() {
     if (!user && !isLoading) {
       router.push("/")
     }
-  }, [user, isLoading, router])
+  }, [user, isLoading, router, onKeyDown])
 
   return (
     <div className=" h-screen py-2">

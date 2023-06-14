@@ -3,6 +3,7 @@
 import { useGetArticlesQuery } from "@/redux/slices/apiSlice"
 import parse from "html-react-parser"
 import "../article/[articleID]/article.css"
+import Image from "next/image"
 
 export function Article({ articleID }) {
   const {
@@ -35,7 +36,10 @@ export function Article({ articleID }) {
             )}mins `}
           </div>
           <div className="mb-20 h-72 w-96 rounded-xl bg-black">
-            <img
+            <Image
+              width="100"
+              height="100"
+              alt="Article Lead"
               className="h-72 w-96 rounded-xl object-cover"
               src={instance.lead_image_url}
             />

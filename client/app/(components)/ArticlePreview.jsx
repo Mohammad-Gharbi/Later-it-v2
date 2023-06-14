@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation"
 import { DropDownMenu } from "./DropDownMenu"
+import Image from "next/image"
 
 export function ArticlePreview({ article }) {
   const router = useRouter()
@@ -21,7 +22,10 @@ export function ArticlePreview({ article }) {
         className="flex h-32 w-full cursor-pointer flex-row items-center rounded-lg bg-[#282828] p-4 transition-all ease-in-out hover:bg-[#414141]"
       >
         <div className="mr-10 h-24 w-32 rounded-md bg-black">
-          <img
+          <Image
+            width="100"
+            height="100"
+            alt="Article Lead"
             className="h-24 w-32 rounded-md object-cover"
             src={article.lead_image_url}
           />
@@ -40,7 +44,10 @@ export function ArticlePreview({ article }) {
               } • ${Math.round(article.word_count / 200)}mins `}
             </div>
             {article.tags?.map((tag) => (
-              <button className=" h-fit w-16 rounded-md bg-slate-600 py-1 text-center text-xs font-bold text-white ">
+              <button
+                key={tag.id}
+                className=" h-fit w-16 rounded-md bg-slate-600 py-1 text-center text-xs font-bold text-white "
+              >
                 {tag}
               </button>
             ))}
