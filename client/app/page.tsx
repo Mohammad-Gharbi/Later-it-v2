@@ -10,7 +10,7 @@ export default function Home() {
   const router = useRouter()
 
   if (user) {
-    router.push("/inbox")
+    router.push("/app")
   }
 
   return (
