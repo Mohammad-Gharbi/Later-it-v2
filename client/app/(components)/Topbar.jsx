@@ -24,15 +24,15 @@ export function TopBar() {
     useDeleteTagMutation()
 
   return (
-    <div className="fixed z-10 col-span-12 col-start-2 row-span-1 ml-24 flex w-full flex-row items-center justify-between bg-[#111111] bg-opacity-5 p-6 backdrop-blur-xl">
-      <div className="w-24 text-2xl font-bold text-white">
+    <div className="fixed z-10 col-span-12 col-start-2 row-span-1 ml-24 flex w-full flex-row items-center justify-between bg-black p-6 backdrop-blur-xl">
+      <div className="maw-w-[10rem] w-fit text-2xl font-bold text-white">
         {state.section === "Tag" ? state.currentTag : state.section}
       </div>
       <Search />
       {state.section === "Tag" ? (
         <div className="mr-24">
           <Menu>
-            <MenuButton as={Button}>
+            <MenuButton>
               <button className="h-5 w-5 text-white ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

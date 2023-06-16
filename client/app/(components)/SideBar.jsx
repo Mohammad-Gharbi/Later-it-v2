@@ -9,6 +9,7 @@ import { useUser } from "@auth0/nextjs-auth0/client"
 import { useDispatch, useSelector } from "react-redux"
 import { setSection } from "@/redux/slices/appSlice"
 import Image from "next/image"
+import Link from "next/link"
 
 export function SideBar() {
   const { user, error, isLoading } = useUser()
@@ -226,7 +227,7 @@ export function SideBar() {
         <div className="flex flex-col items-center">
           <AddArticle />
           {/* Profile */}
-          <button>
+          <Link href="/api/auth/logout">
             {user ? (
               <Image
                 width="100"
@@ -238,7 +239,7 @@ export function SideBar() {
             ) : (
               ""
             )}
-          </button>
+          </Link>
         </div>
       </div>
     </div>
