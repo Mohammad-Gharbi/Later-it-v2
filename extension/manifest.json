@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Later it",
+  "version": "1.0",
+
+  "description": "Adds a red border to all webpages matching mozilla.org.",
+
+  "icons": {
+    "48": "icons/icon.ico"
+  },
+  "permissions": ["<all_urls>", "storage", "tabs"],
+  "background": {
+    "scripts": ["index.js"]
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/icon.ico",
+      "32": "icons/icon.ico"
+    }
+  }
+}

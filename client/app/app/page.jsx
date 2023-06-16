@@ -42,6 +42,7 @@ export default function Inbox() {
           status: "error",
           isClosable: true,
         })
+        console.log(error)
       }
     } else if (state.section === "Search") {
       if (isLoading) {
@@ -68,6 +69,7 @@ export default function Inbox() {
           status: "error",
           isClosable: true,
         })
+        console.log(error)
       }
     } else {
       if (isLoading) {
@@ -90,6 +92,7 @@ export default function Inbox() {
           status: "error",
           isClosable: true,
         })
+        console.log(error)
       }
     }
   }, [state, isLoading, isSuccess, isError, articles, toast])
