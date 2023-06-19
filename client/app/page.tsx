@@ -11,7 +11,7 @@ export default function Home() {
   const { user, error, isLoading } = useUser()
   const router = useRouter()
   useEffect(() => {
-    if (user || isLoading) {
+    if (user) {
       router.push("/app")
     }
   }, [user, isLoading, error])
