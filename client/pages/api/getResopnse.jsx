@@ -1,6 +1,5 @@
 import Cors from "cors"
-import { PrismaClient } from "@prisma/client"
-const prisma = new PrismaClient()
+import prisma from "../../prisma/prisma"
 
 const cors = Cors({
   methods: ["POST", "GET", "HEAD"],

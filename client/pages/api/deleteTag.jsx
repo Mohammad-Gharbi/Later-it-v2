@@ -1,8 +1,6 @@
 import Cors from "cors"
-import { PrismaClient } from "@prisma/client"
+import prisma from "../../prisma/prisma"
 import { getSession } from "@auth0/nextjs-auth0"
-
-const prisma = new PrismaClient()
 
 const cors = Cors({
   methods: ["POST", "GET", "HEAD"],
