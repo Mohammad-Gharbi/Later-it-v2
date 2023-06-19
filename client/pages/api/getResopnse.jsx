@@ -1,5 +1,5 @@
 import Cors from "cors"
-import prisma from "../../prisma/prisma"
+// import prisma from "../../prisma/prisma"
 
 const cors = Cors({
   methods: ["POST", "GET", "HEAD"],
@@ -19,9 +19,9 @@ function runMiddleware(req, res, fn) {
 
 export default async function getTag(req, res) {
   await runMiddleware(req, res, cors)
-  const result = await prisma.article.findMany({
-    where: { userId: "mohammed.gharbi.dev@gmail.com" },
-  })
+  // const result = await prisma.article.findMany({
+  //   where: { userId: "mohammed.gharbi.dev@gmail.com" },
+  // })
 
-  res.status(200).json(result)
+  res.status(200).json("hi")
 }
