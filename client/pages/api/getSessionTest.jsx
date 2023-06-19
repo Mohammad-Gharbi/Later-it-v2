@@ -26,5 +26,7 @@ export default async function getSessionTest(req, res) {
   const session = await getSession(req, res)
   if (session) {
     res.status(200).json(session)
+  } else {
+    res.status(200).json("no session")
   }
 }
