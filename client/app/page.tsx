@@ -13,7 +13,6 @@ export default function Home() {
   useEffect(() => {
     if (user) {
       router.push("/app")
-      console.log(user)
     }
   }, [user, isLoading, error, router])
 
