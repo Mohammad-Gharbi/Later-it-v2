@@ -26,7 +26,7 @@ export default async function getTag(req, res) {
   const session = await getSession(req, res)
   if (session) {
     const result = await prisma.tag.findMany({
-      where: { userId: session.user.sid },
+      where: { userId: session.user.email },
     })
     res.status(200).json(result)
   }

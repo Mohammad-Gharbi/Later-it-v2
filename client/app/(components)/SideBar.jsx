@@ -2,7 +2,7 @@
 
 import { AddTag } from "./AddTag"
 import AddArticle from "./AddArticle"
-import { useEffect } from "react"
+import { useCallback, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Tooltip } from "@chakra-ui/react"
 import { useUser } from "@auth0/nextjs-auth0/client"
@@ -18,7 +18,7 @@ export function SideBar() {
   const state = useSelector((state) => state.section)
   const dispatch = useDispatch()
 
-  function onKeyDown(event) {
+  const onKeyDown = useCallback((event) => {
     if (event.key === "i") {
       dispatch(setSection("Inbox"))
     } else if (event.key === "l") {
@@ -26,7 +26,17 @@ export function SideBar() {
     } else if (event.key === "a") {
       dispatch(setSection("Archive"))
     }
-  }
+  }, [])
+
+  // function onKeyDown(event) {
+  //   if (event.key === "i") {
+  //     dispatch(setSection("Inbox"))
+  //   } else if (event.key === "l") {
+  //     dispatch(setSection("Later"))
+  //   } else if (event.key === "a") {
+  //     dispatch(setSection("Archive"))
+  //   }
+  // }
 
   useEffect(() => {
     window.addEventListener("keydown", onKeyDown)
@@ -34,7 +44,7 @@ export function SideBar() {
     return () => {
       window.removeEventListener("keydown", onKeyDown)
     }
-  }, [onKeyDown])
+  }, [])
 
   useEffect(() => {
     if (!user && !isLoading) {

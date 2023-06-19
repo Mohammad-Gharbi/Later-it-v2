@@ -95,7 +95,7 @@ export default function Inbox() {
         console.log(error)
       }
     }
-  }, [state, isLoading, isSuccess, isError, articles, toast])
+  }, [state, isLoading, isSuccess, isError, error, articles, toast])
 
   return (
     <div className="itemes-center relative flex h-screen w-full flex-col gap-5">

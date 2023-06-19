@@ -29,7 +29,7 @@ export default async function addNewTag(req, res) {
     const result = await prisma.tag.create({
       data: {
         tagName: tagName,
-        userId: session.user.sid,
+        userId: session.user.email,
       },
     })
 

@@ -46,7 +46,7 @@ export default async function addArticle(req, res) {
         total_pages: article.total_pages,
         rendered_pages: article.rendered_pages,
         tag: "",
-        userId: session.user.sid,
+        userId: session.user.email,
       },
     })
 
