@@ -227,7 +227,7 @@ export function SideBar() {
         <div className="flex flex-col items-center">
           <AddArticle />
           {/* Profile */}
-          <Link href="/api/auth/logout">
+          <a href="/api/auth/logout">
             {user ? (
               <Image
                 width="100"
@@ -239,7 +239,7 @@ export function SideBar() {
             ) : (
               ""
             )}
-          </Link>
+          </a>
         </div>
       </div>
     </div>

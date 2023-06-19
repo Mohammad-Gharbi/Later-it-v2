@@ -42,13 +42,13 @@ export default function Home() {
           </div>
 
           <div className="flex h-7 w-60 flex-row items-center justify-between text-xl font-medium text-white">
-            <Link href="/api/auth/login">Login</Link>
-            <Link
+            <a href="/api/auth/login">Login</a>
+            <a
               href="/api/auth/login"
               className="h-11 w-36 rounded-xl bg-[#7E2EFF] py-2 text-center text-lg font-bold"
             >
               Sign Up
-            </Link>
+            </a>
           </div>
         </div>
       </div>
