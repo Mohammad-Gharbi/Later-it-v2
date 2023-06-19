@@ -5,14 +5,16 @@ import Image from "next/image"
 import { useUser } from "@auth0/nextjs-auth0/client"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { useEffect } from "react"
 
 export default function Home() {
   const { user, error, isLoading } = useUser()
   const router = useRouter()
-
-  if (user) {
-    router.push("/app")
-  }
+  useEffect(() => {
+    if (user || isLoading) {
+      router.push("/app")
+    }
+  }, [user, isLoading, error])
 
   return (
     <div className="relative">
