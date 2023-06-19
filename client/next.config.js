@@ -16,7 +16,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "content.artofmanliness.com",
+        hostname: "**",
         port: "",
         pathname: "/**",
       },
