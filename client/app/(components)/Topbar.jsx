@@ -25,7 +25,7 @@ export function TopBar() {
 
   return (
     <div className="fixed z-10 col-span-11 col-start-2 row-span-1 ml-24 flex w-full flex-row items-center justify-between bg-black p-6 backdrop-blur-xl">
-      <div className="maw-w-[10rem] w-fit text-2xl font-bold text-white">
+      <div className="w-fit max-w-[10rem] text-2xl font-bold text-white">
         {state.section === "Tag" ? state.currentTag : state.section}
       </div>
       <Search />
