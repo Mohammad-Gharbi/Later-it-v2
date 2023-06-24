@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       <div className="relative grid h-screen grid-cols-12 grid-rows-6 rounded-xl bg-black">
         <SideBar />
         <TopBar />
-        <div className="col-span-full col-start-2 row-span-full row-start-2 px-14 pb-36">
+        <div className="col-span-full col-start-2 row-start-2 row-end-6 px-14">
           {children}
         </div>
       </div>

@@ -3,10 +3,9 @@
 import { useRouter } from "next/navigation"
 import { DropDownMenu } from "./DropDownMenu"
 import Image from "next/image"
+import Link from "next/link"
 
 export function ArticlePreview({ article }) {
-  const router = useRouter()
-
   return (
     <div className="relative h-32 w-full">
       <DropDownMenu
@@ -17,8 +16,8 @@ export function ArticlePreview({ article }) {
         articleTag={article.tag}
       />
 
-      <div
-        onClick={() => router.push(`/article/${article.id}`)}
+      <Link
+        href={`/article/${article.id}`}
         className="flex h-32 w-full cursor-pointer flex-row items-center rounded-lg bg-[#282828] p-4 transition-all ease-in-out hover:bg-[#414141]"
       >
         <div className="mr-10 h-24 w-32 rounded-md bg-black">
@@ -53,7 +52,7 @@ export function ArticlePreview({ article }) {
             ))}
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   )
 }

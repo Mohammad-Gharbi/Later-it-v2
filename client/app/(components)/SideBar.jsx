@@ -53,8 +53,8 @@ export function SideBar() {
   }, [user, isLoading, router, onKeyDown])
 
   return (
-    <div className=" h-screen py-2">
-      <div className="fixed left-0 top-0 col-span-1 row-span-6 flex h-full w-24 flex-col items-center justify-between rounded-xl bg-black py-8">
+    <div className="col-span-1 row-span-6 h-screen py-2">
+      <div className="fixed top-0 flex h-full w-24 flex-col items-center justify-between rounded-xl bg-black py-8">
         <div className="flex flex-col items-center">
           <div className="mb-10 mt-[0.3rem]">
             <svg
@@ -235,6 +235,8 @@ export function SideBar() {
         </div>
 
         <div className="flex flex-col items-center">
+          {/* How It Works */}
+
           <AddArticle />
           {/* Profile */}
           <a href="/api/auth/logout">
