@@ -24,7 +24,7 @@ export function TopBar() {
     useDeleteTagMutation()
 
   return (
-    <div className=" col-span-full col-start-2 row-span-1 ">
+    <div className="col-span-full col-start-1 row-span-1 hidden md:col-start-2 md:block ">
       <div className="fixed right-0 top-0 z-10 flex w-full flex-row items-center justify-between bg-black p-6 backdrop-blur-xl">
         <div className="w-40 text-2xl font-bold text-white">
           {state.section === "Tag" ? state.currentTag : state.section}

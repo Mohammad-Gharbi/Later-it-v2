@@ -95,7 +95,7 @@ export default function Inbox() {
   }, [state, isLoading, isSuccess, isError, error, articles, toast])
 
   return (
-    <div className="itemes-center relative flex h-screen w-full flex-col gap-5">
+    <div className="itemes-center relative flex h-full flex-col gap-5 md:h-screen">
       {content}
     </div>
   )

@@ -46,7 +46,7 @@ export function AddTag() {
                 setCurrentTag({ currentTag: tag.tagName, currentTagId: tag.id })
               )
             }}
-            className=" mt-5 h-fit w-16 rounded-sm bg-slate-600 py-1 text-center text-xs font-bold text-white "
+            className="mt-5 h-fit w-16 rounded-sm bg-slate-600 py-1 text-center text-xs font-bold text-white "
           >
             {tag.tagName}
           </button>
@@ -56,7 +56,7 @@ export function AddTag() {
   }
 
   return (
-    <div>
+    <div className="hidden md:block ">
       {listTags}
       <div onClick={onOpen}>
         <button className=" mt-5 text-xs font-bold text-white ">

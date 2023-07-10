@@ -2,7 +2,7 @@
 
 import { useAddArticleMutation } from "@/redux/slices/apiSlice"
 import { useRef } from "react"
-import { Button, useDisclosure } from "@chakra-ui/react"
+import { Button, Tooltip, useDisclosure } from "@chakra-ui/react"
 import {
   Modal,
   ModalOverlay,
@@ -19,31 +19,33 @@ export default function AddArticle() {
   const [addArticle] = useAddArticleMutation()
 
   return (
-    <>
-      <div onClick={onOpen}>
-        <svg
-          width="29"
-          height="29"
-          viewBox="0 0 29 29"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14.5 6.04163V22.9583"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M6.04167 14.5H22.9583"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </div>
+    <div className="hidden md:block">
+      <Tooltip label="Add Article" placement="right">
+        <div onClick={onOpen}>
+          <svg
+            width="29"
+            height="29"
+            viewBox="0 0 29 29"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.5 6.04163V22.9583"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6.04167 14.5H22.9583"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </Tooltip>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -82,6 +84,6 @@ export default function AddArticle() {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </>
+    </div>
   )
 }

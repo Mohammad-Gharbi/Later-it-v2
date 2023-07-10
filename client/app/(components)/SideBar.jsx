@@ -53,10 +53,10 @@ export function SideBar() {
   }, [user, isLoading, router, onKeyDown])
 
   return (
-    <div className="col-span-1 row-span-6 h-screen py-2">
-      <div className="fixed top-0 flex h-full w-24 flex-col items-center justify-between rounded-xl bg-black py-8">
-        <div className="flex flex-col items-center">
-          <div className="mb-10 mt-[0.3rem]">
+    <div className="col-span-full row-span-1 row-start-5 hidden md:col-span-1 md:row-span-6 md:block md:h-screen md:py-2">
+      <div className="fixed bottom-0 flex w-full flex-row rounded-xl bg-black py-8 md:top-0 md:h-full md:w-24 md:flex-col md:items-center md:justify-between">
+        <div className="flex flex-row items-center justify-center md:flex-col">
+          <div className="mb-10 mt-[0.3rem] hidden md:block">
             <svg
               width="57"
               height="15"
@@ -75,9 +75,9 @@ export function SideBar() {
             </svg>
           </div>
 
-          <div className="mb-10 mt-10 flex h-24 flex-col items-center justify-between">
+          <div className="mb-10 mt-10 flex h-24 flex-row items-center justify-between md:flex-col">
             {/* Inbox */}
-            <Tooltip label="Inbox">
+            <Tooltip label="Inbox" placement="right">
               <button
                 onClick={() => {
                   dispatch(setSection("Inbox"))
@@ -147,7 +147,7 @@ export function SideBar() {
               </button>
             </Tooltip>
             {/* Later */}
-            <Tooltip label="Later">
+            <Tooltip label="Later" placement="right">
               <button
                 onClick={() => {
                   dispatch(setSection("Later"))
@@ -192,7 +192,7 @@ export function SideBar() {
               </button>
             </Tooltip>
             {/* Archive */}
-            <Tooltip label="Archive">
+            <Tooltip label="Archive" placement="right">
               <button
                 onClick={() => {
                   dispatch(setSection("Archive"))
@@ -235,11 +235,9 @@ export function SideBar() {
         </div>
 
         <div className="flex flex-col items-center">
-          {/* How It Works */}
-
           <AddArticle />
           {/* Profile */}
-          <a href="/api/auth/logout">
+          <a href="/api/auth/logout" className="hidden md:block">
             {user ? (
               <Image
                 width="100"

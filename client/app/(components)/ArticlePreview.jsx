@@ -7,7 +7,7 @@ import Link from "next/link"
 
 export function ArticlePreview({ article }) {
   return (
-    <div className="relative h-32 w-full">
+    <div className="relative h-32 w-[95%]">
       <DropDownMenu
         position={"absolute"}
         articleId={article.id}
@@ -18,7 +18,7 @@ export function ArticlePreview({ article }) {
 
       <Link
         href={`/article/${article.id}`}
-        className="flex h-32 w-full cursor-pointer flex-row items-center rounded-lg bg-[#282828] p-4 transition-all ease-in-out hover:bg-[#414141]"
+        className="flex h-32 cursor-pointer flex-row items-center rounded-lg bg-[#282828] p-4 transition-all ease-in-out hover:bg-[#414141] md:w-full"
       >
         <div className="mr-10 h-24 w-32 rounded-md bg-black">
           <Image
@@ -31,12 +31,14 @@ export function ArticlePreview({ article }) {
         </div>
         <div className="flex w-full flex-col gap-2">
           <div className="flex w-full flex-row items-center justify-between">
-            <div className="text-3xl font-bold text-white">{article.title}</div>
+            <div className="text-lg font-bold text-white md:text-3xl">
+              {article.title}
+            </div>
           </div>
-          <div className="text-sm font-medium text-[#C0C0C0] ">
+          <div className="hidden text-xs font-medium text-[#C0C0C0] md:block md:text-sm ">
             {article.excerpt}
           </div>
-          <div className="flex w-full flex-row items-center justify-between text-sm font-medium text-[#8B8B8B]">
+          <div className="hidden w-full flex-row items-center justify-between text-xs font-medium text-[#8B8B8B] md:flex md:text-sm">
             <div>
               {`${article.domain} ${
                 article.author ? `• ${article.domain}` : ""
