@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <div className="absolute left-0 aspect-square w-[50em] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7E2EFF]/20 blur-[500px]"></div>
+      <div className="absolute left-0 -z-10 aspect-square w-[50em] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7E2EFF]/20 blur-[500px]"></div>
       {/* Navigation */}
       <div className="z-10 px-4 py-8 md:px-36 md:py-24">
         <div className="flex flex-row items-center justify-between">
