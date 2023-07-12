@@ -31,7 +31,7 @@ export function ArticlePreview({ article }) {
         </div>
         <div className="flex w-full flex-col gap-2">
           <div className="flex w-full flex-row items-center justify-between">
-            <div className="text-lg font-bold text-white md:text-3xl">
+            <div className="text-base font-bold text-white md:text-3xl">
               {article.title}
             </div>
           </div>
