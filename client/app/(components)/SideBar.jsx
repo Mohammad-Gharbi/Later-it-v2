@@ -59,9 +59,9 @@ export function SideBar() {
   }, [user, isLoading, router, onKeyDown])
 
   return (
-    <div className="col-span-full row-span-1 row-start-5 hidden md:col-span-1 md:row-span-6 md:block md:h-screen md:py-2">
+    <div className="col-span-full row-span-1 row-start-5 md:col-span-1 md:row-span-6 md:block md:h-screen md:py-2">
       <div className="fixed bottom-0 flex w-full flex-row rounded-xl bg-black py-8 md:top-0 md:h-full md:w-24 md:flex-col md:items-center md:justify-between">
-        <div className="flex flex-row items-center justify-center md:flex-col">
+        <div className="flex w-full flex-row items-center justify-center md:flex-col">
           <div className="mb-10 mt-[0.3rem] hidden md:block">
             <svg
               width="57"
