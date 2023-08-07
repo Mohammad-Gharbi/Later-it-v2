@@ -2,9 +2,11 @@
 
 import { useRouter } from "next/navigation"
 import { useRef } from "react"
-import { Input } from "@chakra-ui/react"
 import { useDispatch, useSelector } from "react-redux"
 import { setSearchQuery, setSection } from "@/redux/slices/appSlice"
+
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 export function Search() {
   const searchQuery = useRef()
@@ -19,18 +21,10 @@ export function Search() {
   return (
     <form
       onSubmit={onSearch}
-      className="flex flex-row items-center justify-start"
+      className="flex flex-row items-center justify-start gap-2"
     >
-      <input
-        ref={searchQuery}
-        type="text"
-        placeholder="Search..."
-        className=" h-10 w-52 cursor-pointer rounded-lg bg-[#282828] px-5 text-white outline-none transition-all ease-in-out placeholder:text-[#8B8B8B] hover:bg-[#3e3e3e] focus:bg-[#3e3e3e]"
-      ></input>
-      <button
-        type="submit"
-        className="ml-5 h-10 cursor-pointer rounded-lg bg-[#282828] px-5 text-[#8B8B8B] hover:bg-[#3e3e3e] hover:text-white "
-      >
+      <Input ref={searchQuery} type="text" placeholder="Search..."></Input>
+      <Button variant="outline" type="submit">
         <svg
           width="20"
           height="20"
@@ -53,7 +47,7 @@ export function Search() {
             stroke-linejoin="round"
           />
         </svg>
-      </button>
+      </Button>
     </form>
   )
 }

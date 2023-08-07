@@ -4,12 +4,18 @@ import { AddTag } from "./AddTag"
 import AddArticle from "./AddArticle"
 import { useCallback, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { Tooltip } from "@chakra-ui/react"
 import { useUser } from "@auth0/nextjs-auth0/client"
 import { useDispatch, useSelector } from "react-redux"
 import { setSection } from "@/redux/slices/appSlice"
 import Image from "next/image"
 import Link from "next/link"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { Button } from "@/components/ui/button"
 
 export function SideBar() {
   const { user, error, isLoading } = useUser()
@@ -75,160 +81,190 @@ export function SideBar() {
             </svg>
           </div>
 
-          <div className="mb-10 mt-10 flex h-24 flex-row items-center justify-between md:flex-col">
+          <div className="mb-10 mt-10 flex h-fit flex-row items-center justify-between gap-2 md:flex-col">
             {/* Inbox */}
-            <Tooltip label="Inbox" placement="right">
-              <button
-                onClick={() => {
-                  dispatch(setSection("Inbox"))
-                }}
-              >
-                <svg
-                  width="28"
-                  height="26"
-                  viewBox="0 0 28 26"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_d_103_12)">
-                    <path
-                      d="M22.3333 10H17.3333L15.6667 12.5H12.3333L10.6667 10H5.66667"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M8.54167 4.25837L5.66667 10V15C5.66667 15.4421 5.84226 15.866 6.15482 16.1785C6.46738 16.4911 6.8913 16.6667 7.33333 16.6667H20.6667C21.1087 16.6667 21.5326 16.4911 21.8452 16.1785C22.1577 15.866 22.3333 15.4421 22.3333 15V10L19.4583 4.25837C19.3203 3.9807 19.1076 3.74702 18.8441 3.58361C18.5806 3.4202 18.2767 3.33354 17.9667 3.33337H10.0333C9.72326 3.33354 9.41939 3.4202 9.15587 3.58361C8.89235 3.74702 8.67965 3.9807 8.54167 4.25837Z"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_d_103_12"
-                      x="0"
-                      y="0"
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    onClick={() => {
+                      dispatch(setSection("Inbox"))
+                    }}
+                  >
+                    <svg
                       width="28"
-                      height="28"
-                      filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      height="26"
+                      viewBox="0 0 28 26"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix
-                        in="SourceAlpha"
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha"
-                      />
-                      <feOffset dy="4" />
-                      <feGaussianBlur stdDeviation="2" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix
-                        type="matrix"
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in2="BackgroundImageFix"
-                        result="effect1_dropShadow_103_12"
-                      />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="effect1_dropShadow_103_12"
-                        result="shape"
-                      />
-                    </filter>
-                  </defs>
-                </svg>
-              </button>
-            </Tooltip>
+                      <g filter="url(#filter0_d_103_12)">
+                        <path
+                          d="M22.3333 10H17.3333L15.6667 12.5H12.3333L10.6667 10H5.66667"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.54167 4.25837L5.66667 10V15C5.66667 15.4421 5.84226 15.866 6.15482 16.1785C6.46738 16.4911 6.8913 16.6667 7.33333 16.6667H20.6667C21.1087 16.6667 21.5326 16.4911 21.8452 16.1785C22.1577 15.866 22.3333 15.4421 22.3333 15V10L19.4583 4.25837C19.3203 3.9807 19.1076 3.74702 18.8441 3.58361C18.5806 3.4202 18.2767 3.33354 17.9667 3.33337H10.0333C9.72326 3.33354 9.41939 3.4202 9.15587 3.58361C8.89235 3.74702 8.67965 3.9807 8.54167 4.25837Z"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_d_103_12"
+                          x="0"
+                          y="0"
+                          width="28"
+                          height="28"
+                          filterUnits="userSpaceOnUse"
+                          color-interpolation-filters="sRGB"
+                        >
+                          <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="4" />
+                          <feGaussianBlur stdDeviation="2" />
+                          <feComposite in2="hardAlpha" operator="out" />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_103_12"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_103_12"
+                            result="shape"
+                          />
+                        </filter>
+                      </defs>
+                    </svg>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Inbox</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             {/* Later */}
-            <Tooltip label="Later" placement="right">
-              <button
-                onClick={() => {
-                  dispatch(setSection("Later"))
-                }}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.16667 18.3334H15.8333"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M4.16667 1.66663H15.8333"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M14.1667 18.3333V14.8567C14.1666 14.4147 13.9909 13.9908 13.6783 13.6783L10 10L6.32167 13.6783C6.00908 13.9908 5.83343 14.4147 5.83333 14.8567V18.3333"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M5.83333 1.66663V5.14329C5.83343 5.58528 6.00908 6.00914 6.32167 6.32162L10 9.99996L13.6783 6.32162C13.9909 6.00914 14.1666 5.58528 14.1667 5.14329V1.66663"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-            </Tooltip>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    onClick={() => {
+                      dispatch(setSection("Later"))
+                    }}
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4.16667 18.3334H15.8333"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4.16667 1.66663H15.8333"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M14.1667 18.3333V14.8567C14.1666 14.4147 13.9909 13.9908 13.6783 13.6783L10 10L6.32167 13.6783C6.00908 13.9908 5.83343 14.4147 5.83333 14.8567V18.3333"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5.83333 1.66663V5.14329C5.83343 5.58528 6.00908 6.00914 6.32167 6.32162L10 9.99996L13.6783 6.32162C13.9909 6.00914 14.1666 5.58528 14.1667 5.14329V1.66663"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Later</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             {/* Archive */}
-            <Tooltip label="Archive" placement="right">
-              <button
-                onClick={() => {
-                  dispatch(setSection("Archive"))
-                }}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M16.6667 3.33337H3.33333C2.41286 3.33337 1.66667 4.07957 1.66667 5.00004V5.83337C1.66667 6.75385 2.41286 7.50004 3.33333 7.50004H16.6667C17.5871 7.50004 18.3333 6.75385 18.3333 5.83337V5.00004C18.3333 4.07957 17.5871 3.33337 16.6667 3.33337Z"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M3.33333 7.5V15C3.33333 15.442 3.50893 15.866 3.82149 16.1785C4.13405 16.4911 4.55797 16.6667 5 16.6667H15C15.442 16.6667 15.8659 16.4911 16.1785 16.1785C16.4911 15.866 16.6667 15.442 16.6667 15V7.5"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M8.33333 10.8334H11.6667"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-            </Tooltip>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    onClick={() => {
+                      dispatch(setSection("Archive"))
+                    }}
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.6667 3.33337H3.33333C2.41286 3.33337 1.66667 4.07957 1.66667 5.00004V5.83337C1.66667 6.75385 2.41286 7.50004 3.33333 7.50004H16.6667C17.5871 7.50004 18.3333 6.75385 18.3333 5.83337V5.00004C18.3333 4.07957 17.5871 3.33337 16.6667 3.33337Z"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M3.33333 7.5V15C3.33333 15.442 3.50893 15.866 3.82149 16.1785C4.13405 16.4911 4.55797 16.6667 5 16.6667H15C15.442 16.6667 15.8659 16.4911 16.1785 16.1785C16.4911 15.866 16.6667 15.442 16.6667 15V7.5"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M8.33333 10.8334H11.6667"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Archive</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
 
           <AddTag tagName="Learning" />

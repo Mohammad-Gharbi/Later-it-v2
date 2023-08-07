@@ -6,6 +6,7 @@ import { useUser } from "@auth0/nextjs-auth0/client"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { useEffect } from "react"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   const { user, error, isLoading } = useUser()
@@ -42,14 +43,13 @@ export default function Home() {
             </svg>
           </div>
 
-          <div className="flex h-8 w-32 flex-row items-center justify-between text-sm font-medium text-white md:h-7 md:w-60 md:text-xl">
-            <a href="/api/auth/login">Login</a>
-            <a
-              href="/api/auth/login"
-              className="h-8 w-20 rounded-lg bg-[#7E2EFF] py-2 text-center font-bold md:h-11 md:w-36 md:rounded-xl"
-            >
-              Sign Up
-            </a>
+          <div className="flex h-8 w-32 flex-row items-center justify-between text-sm font-medium text-white md:h-7 md:w-52 md:text-xl">
+            <Button variant="secondary" asChild>
+              <a href="/api/auth/login">Login</a>
+            </Button>
+            <Button asChild>
+              <a href="/api/auth/login">Sign Up</a>
+            </Button>
           </div>
         </div>
       </div>

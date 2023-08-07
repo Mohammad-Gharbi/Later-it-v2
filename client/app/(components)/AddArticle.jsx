@@ -2,52 +2,93 @@
 
 import { useAddArticleMutation } from "@/redux/slices/apiSlice"
 import { useRef } from "react"
-import { Button, Tooltip, useDisclosure } from "@chakra-ui/react"
+
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from "@chakra-ui/react"
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 export default function AddArticle() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
   const articleURL = useRef()
   const [addArticle] = useAddArticleMutation()
 
   return (
     <div className="hidden md:block">
-      <Tooltip label="Add Article" placement="right">
-        <div onClick={onOpen}>
-          <svg
-            width="29"
-            height="29"
-            viewBox="0 0 29 29"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M14.5 6.04163V22.9583"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M6.04167 14.5H22.9583"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
-      </Tooltip>
+      <Dialog>
+        <DialogTrigger>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <div>
+                  <svg
+                    width="29"
+                    height="29"
+                    viewBox="0 0 29 29"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14.5 6.04163V22.9583"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M6.04167 14.5H22.9583"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Add Article</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Add New Article</DialogTitle>
+          </DialogHeader>
+          <div className="flex flex-col gap-2.5">
+            <fieldset className="flex flex-col items-center gap-5">
+              <Input ref={articleURL} id="URL" placeholder="Article URL" />
+            </fieldset>
+          </div>
+          <DialogFooter>
+            <Button
+              onClick={async () => {
+                if (articleURL.current.value) {
+                  await addArticle({
+                    articleURL: articleURL?.current?.value,
+                  })
+                }
+              }}
+            >
+              Add
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      {/* <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Add New Article</ModalHeader>
@@ -83,7 +124,7 @@ export default function AddArticle() {
             </Button>
           </ModalFooter>
         </ModalContent>
-      </Modal>
+      </Modal> */}
     </div>
   )
 }

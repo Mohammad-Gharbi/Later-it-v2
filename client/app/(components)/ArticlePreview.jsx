@@ -15,10 +15,9 @@ export function ArticlePreview({ article }) {
         articleStatus={article.status}
         articleTag={article.tag}
       />
-
       <Link
         href={`/article/${article.id}`}
-        className="flex h-32 cursor-pointer flex-row items-center rounded-lg bg-[#282828] p-4 transition-all ease-in-out hover:bg-[#414141] md:w-full"
+        className="flex h-32 cursor-pointer flex-row items-center rounded-lg bg-neutral-900 p-4 transition-all ease-in-out hover:bg-neutral-800 md:w-full"
       >
         <div className="mr-10 h-24 w-32 rounded-md bg-black">
           <Image
